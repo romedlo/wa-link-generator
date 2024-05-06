@@ -36,6 +36,12 @@ function main() {
     $('#form-generate-url').onsubmit = (event) => {
         event.preventDefault();
 
+        let countryCode = $('#dropdown-country-code').value?.trim();
+        if (countryCode == null || countryCode.length == 0) {
+            showError('You must select a country code');
+            return;
+        }
+
         let phone = $('#input-phone-number').value?.trim();
         if (phone == null || phone.length == 0) {
             showError('You must enter a phone number');
@@ -44,9 +50,10 @@ function main() {
 
         let message = $('#input-message').value?.trim();
 
-        let generatedUrl = generateUrl(phone, message);
+        let generatedUrl = generateUrl(countryCode, phone, message);
         if(generatedUrl == null) {
-
+            showError('An error occurred while generating the URL');
+            return;
         }
 
         $('#generated-url').href =
@@ -74,9 +81,9 @@ function showError(errorMsg) {
     $('#result-url').style.display = 'none';
 }
 
-function generateUrl(phone, message) {
+function generateUrl(countryCode, phone, message) {
     phone = phone.replaceAll(' ', '');
-    let url = `https://wa.me/${phone}/`;
+    let url = `https://wa.me/${countryCode}${phone}/`;
 
     if (message != null && message.length != 0) {
         url += `?text=${message}`;
