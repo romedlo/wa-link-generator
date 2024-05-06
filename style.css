@@ -1,0 +1,22 @@
+body {
+    background-color: #222831;
+    color: #EEEEEE;
+    font-family: sans-serif;
+}
+
+h1 {
+    color: #76ABAE;
+}
+
+textarea {
+    resize: vertical;
+}
+
+#list-country-codes {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+#error-message, #result-url {
+    display: none;
+}

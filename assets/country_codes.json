@@ -1,0 +1,958 @@
+[
+    {
+        "country": "Afghanistan",
+        "phoneExt": "+93"
+    },
+    {
+        "country": "Albania",
+        "phoneExt": "+355"
+    },
+    {
+        "country": "Algeria",
+        "phoneExt": "+213"
+    },
+    {
+        "country": "American Samoa",
+        "phoneExt": "+1-684"
+    },
+    {
+        "country": "Andorra",
+        "phoneExt": "+376"
+    },
+    {
+        "country": "Angola",
+        "phoneExt": "+244"
+    },
+    {
+        "country": "Anguilla",
+        "phoneExt": "+1-264"
+    },
+    {
+        "country": "Antigua and Barbuda",
+        "phoneExt": "+1-268"
+    },
+    {
+        "country": "Argentina",
+        "phoneExt": "+54"
+    },
+    {
+        "country": "Armenia",
+        "phoneExt": "+374"
+    },
+    {
+        "country": "Aruba",
+        "phoneExt": "+297"
+    },
+    {
+        "country": "Australia",
+        "phoneExt": "+61"
+    },
+    {
+        "country": "Austria",
+        "phoneExt": "+43"
+    },
+    {
+        "country": "Azerbaijan",
+        "phoneExt": "+994"
+    },
+    {
+        "country": "Bahamas",
+        "phoneExt": "+1-242"
+    },
+    {
+        "country": "Bahrain",
+        "phoneExt": "+973"
+    },
+    {
+        "country": "Bangladesh",
+        "phoneExt": "+880"
+    },
+    {
+        "country": "Barbados",
+        "phoneExt": "+1-246"
+    },
+    {
+        "country": "Belarus",
+        "phoneExt": "+375"
+    },
+    {
+        "country": "Belgium",
+        "phoneExt": "+32"
+    },
+    {
+        "country": "Belize",
+        "phoneExt": "+501"
+    },
+    {
+        "country": "Benin",
+        "phoneExt": "+229"
+    },
+    {
+        "country": "Bermuda",
+        "phoneExt": "+1-441"
+    },
+    {
+        "country": "Bhutan",
+        "phoneExt": "+975"
+    },
+    {
+        "country": "Bolivia",
+        "phoneExt": "+591"
+    },
+    {
+        "country": "Bosnia and Herzegovina",
+        "phoneExt": "+387"
+    },
+    {
+        "country": "Botswana",
+        "phoneExt": "+267"
+    },
+    {
+        "country": "Brazil",
+        "phoneExt": "+55"
+    },
+    {
+        "country": "British Indian Ocean Territory",
+        "phoneExt": "+246"
+    },
+    {
+        "country": "British Virgin Islands",
+        "phoneExt": "+1-284"
+    },
+    {
+        "country": "Brunei",
+        "phoneExt": "+673"
+    },
+    {
+        "country": "Bulgaria",
+        "phoneExt": "+359"
+    },
+    {
+        "country": "Burkina Faso",
+        "phoneExt": "+226"
+    },
+    {
+        "country": "Burundi",
+        "phoneExt": "+257"
+    },
+    {
+        "country": "Cambodia",
+        "phoneExt": "+855"
+    },
+    {
+        "country": "Cameroon",
+        "phoneExt": "+237"
+    },
+    {
+        "country": "Canada",
+        "phoneExt": "+1"
+    },
+    {
+        "country": "Cape Verde",
+        "phoneExt": "+238"
+    },
+    {
+        "country": "Cayman Islands",
+        "phoneExt": "+1-345"
+    },
+    {
+        "country": "Central African Republic",
+        "phoneExt": "+236"
+    },
+    {
+        "country": "Chad",
+        "phoneExt": "+235"
+    },
+    {
+        "country": "Chile",
+        "phoneExt": "+56"
+    },
+    {
+        "country": "China",
+        "phoneExt": "+86"
+    },
+    {
+        "country": "Christmas Island",
+        "phoneExt": "+61"
+    },
+    {
+        "country": "Cocos Islands",
+        "phoneExt": "+61"
+    },
+    {
+        "country": "Colombia",
+        "phoneExt": "+57"
+    },
+    {
+        "country": "Comoros",
+        "phoneExt": "+269"
+    },
+    {
+        "country": "Cook Islands",
+        "phoneExt": "+682"
+    },
+    {
+        "country": "Costa Rica",
+        "phoneExt": "+506"
+    },
+    {
+        "country": "Croatia",
+        "phoneExt": "+385"
+    },
+    {
+        "country": "Cuba",
+        "phoneExt": "+53"
+    },
+    {
+        "country": "Curacao",
+        "phoneExt": "+599"
+    },
+    {
+        "country": "Cyprus",
+        "phoneExt": "+357"
+    },
+    {
+        "country": "Czech Republic",
+        "phoneExt": "+420"
+    },
+    {
+        "country": "Democratic Republic of the Congo",
+        "phoneExt": "+243"
+    },
+    {
+        "country": "Denmark",
+        "phoneExt": "+45"
+    },
+    {
+        "country": "Djibouti",
+        "phoneExt": "+253"
+    },
+    {
+        "country": "Dominica",
+        "phoneExt": "+1-767"
+    },
+    {
+        "country": "Dominican Republic",
+        "phoneExt": "+1-809"
+    },
+    {
+        "country": "East Timor",
+        "phoneExt": "+670"
+    },
+    {
+        "country": "Ecuador",
+        "phoneExt": "+593"
+    },
+    {
+        "country": "Egypt",
+        "phoneExt": "+20"
+    },
+    {
+        "country": "El Salvador",
+        "phoneExt": "+503"
+    },
+    {
+        "country": "Equatorial Guinea",
+        "phoneExt": "+240"
+    },
+    {
+        "country": "Eritrea",
+        "phoneExt": "+291"
+    },
+    {
+        "country": "Estonia",
+        "phoneExt": "+372"
+    },
+    {
+        "country": "Ethiopia",
+        "phoneExt": "+251"
+    },
+    {
+        "country": "Falkland Islands",
+        "phoneExt": "+500"
+    },
+    {
+        "country": "Faroe Islands",
+        "phoneExt": "+298"
+    },
+    {
+        "country": "Fiji",
+        "phoneExt": "+679"
+    },
+    {
+        "country": "Finland",
+        "phoneExt": "+358"
+    },
+    {
+        "country": "France",
+        "phoneExt": "+33"
+    },
+    {
+        "country": "French Polynesia",
+        "phoneExt": "+689"
+    },
+    {
+        "country": "Gabon",
+        "phoneExt": "+241"
+    },
+    {
+        "country": "Gambia",
+        "phoneExt": "+220"
+    },
+    {
+        "country": "Georgia",
+        "phoneExt": "+995"
+    },
+    {
+        "country": "Germany",
+        "phoneExt": "+49"
+    },
+    {
+        "country": "Ghana",
+        "phoneExt": "+233"
+    },
+    {
+        "country": "Gibraltar",
+        "phoneExt": "+350"
+    },
+    {
+        "country": "Greece",
+        "phoneExt": "+30"
+    },
+    {
+        "country": "Greenland",
+        "phoneExt": "+299"
+    },
+    {
+        "country": "Grenada",
+        "phoneExt": "+1-473"
+    },
+    {
+        "country": "Guam",
+        "phoneExt": "+1-671"
+    },
+    {
+        "country": "Guatemala",
+        "phoneExt": "+502"
+    },
+    {
+        "country": "Guernsey",
+        "phoneExt": "+44-1481"
+    },
+    {
+        "country": "Guinea",
+        "phoneExt": "+224"
+    },
+    {
+        "country": "Guinea-Bissau",
+        "phoneExt": "+245"
+    },
+    {
+        "country": "Guyana",
+        "phoneExt": "+592"
+    },
+    {
+        "country": "Haiti",
+        "phoneExt": "+509"
+    },
+    {
+        "country": "Honduras",
+        "phoneExt": "+504"
+    },
+    {
+        "country": "Hong Kong",
+        "phoneExt": "+852"
+    },
+    {
+        "country": "Hungary",
+        "phoneExt": "+36"
+    },
+    {
+        "country": "Iceland",
+        "phoneExt": "+354"
+    },
+    {
+        "country": "India",
+        "phoneExt": "+91"
+    },
+    {
+        "country": "Indonesia",
+        "phoneExt": "+62"
+    },
+    {
+        "country": "Iran",
+        "phoneExt": "+98"
+    },
+    {
+        "country": "Iraq",
+        "phoneExt": "+964"
+    },
+    {
+        "country": "Ireland",
+        "phoneExt": "+353"
+    },
+    {
+        "country": "Isle of Man",
+        "phoneExt": "+44-1624"
+    },
+    {
+        "country": "Israel",
+        "phoneExt": "+972"
+    },
+    {
+        "country": "Italy",
+        "phoneExt": "+39"
+    },
+    {
+        "country": "Ivory Coast",
+        "phoneExt": "+225"
+    },
+    {
+        "country": "Jamaica",
+        "phoneExt": "+1-876"
+    },
+    {
+        "country": "Japan",
+        "phoneExt": "+81"
+    },
+    {
+        "country": "Jersey",
+        "phoneExt": "+44-1534"
+    },
+    {
+        "country": "Jordan",
+        "phoneExt": "+962"
+    },
+    {
+        "country": "Kazakhstan",
+        "phoneExt": "+7"
+    },
+    {
+        "country": "Kenya",
+        "phoneExt": "+254"
+    },
+    {
+        "country": "Kiribati",
+        "phoneExt": "+686"
+    },
+    {
+        "country": "Kosovo",
+        "phoneExt": "+383"
+    },
+    {
+        "country": "Kuwait",
+        "phoneExt": "+965"
+    },
+    {
+        "country": "Kyrgyzstan",
+        "phoneExt": "+996"
+    },
+    {
+        "country": "Laos",
+        "phoneExt": "+856"
+    },
+    {
+        "country": "Latvia",
+        "phoneExt": "+371"
+    },
+    {
+        "country": "Lebanon",
+        "phoneExt": "+961"
+    },
+    {
+        "country": "Lesotho",
+        "phoneExt": "+266"
+    },
+    {
+        "country": "Liberia",
+        "phoneExt": "+231"
+    },
+    {
+        "country": "Libya",
+        "phoneExt": "+218"
+    },
+    {
+        "country": "Liechtenstein",
+        "phoneExt": "+423"
+    },
+    {
+        "country": "Lithuania",
+        "phoneExt": "+370"
+    },
+    {
+        "country": "Luxembourg",
+        "phoneExt": "+352"
+    },
+    {
+        "country": "Macau",
+        "phoneExt": "+853"
+    },
+    {
+        "country": "Macedonia",
+        "phoneExt": "+389"
+    },
+    {
+        "country": "Madagascar",
+        "phoneExt": "+261"
+    },
+    {
+        "country": "Malawi",
+        "phoneExt": "+265"
+    },
+    {
+        "country": "Malaysia",
+        "phoneExt": "+60"
+    },
+    {
+        "country": "Maldives",
+        "phoneExt": "+960"
+    },
+    {
+        "country": "Mali",
+        "phoneExt": "+223"
+    },
+    {
+        "country": "Malta",
+        "phoneExt": "+356"
+    },
+    {
+        "country": "Marshall Islands",
+        "phoneExt": "+692"
+    },
+    {
+        "country": "Mauritania",
+        "phoneExt": "+222"
+    },
+    {
+        "country": "Mauritius",
+        "phoneExt": "+230"
+    },
+    {
+        "country": "Mayotte",
+        "phoneExt": "+262"
+    },
+    {
+        "country": "Mexico",
+        "phoneExt": "+52"
+    },
+    {
+        "country": "Micronesia",
+        "phoneExt": "+691"
+    },
+    {
+        "country": "Moldova",
+        "phoneExt": "+373"
+    },
+    {
+        "country": "Monaco",
+        "phoneExt": "+377"
+    },
+    {
+        "country": "Mongolia",
+        "phoneExt": "+976"
+    },
+    {
+        "country": "Montenegro",
+        "phoneExt": "+382"
+    },
+    {
+        "country": "Montserrat",
+        "phoneExt": "+1-664"
+    },
+    {
+        "country": "Morocco",
+        "phoneExt": "+212"
+    },
+    {
+        "country": "Mozambique",
+        "phoneExt": "+258"
+    },
+    {
+        "country": "Myanmar",
+        "phoneExt": "+95"
+    },
+    {
+        "country": "Namibia",
+        "phoneExt": "+264"
+    },
+    {
+        "country": "Nauru",
+        "phoneExt": "+674"
+    },
+    {
+        "country": "Nepal",
+        "phoneExt": "+977"
+    },
+    {
+        "country": "Netherlands",
+        "phoneExt": "+31"
+    },
+    {
+        "country": "Netherlands Antilles",
+        "phoneExt": "+599"
+    },
+    {
+        "country": "New Caledonia",
+        "phoneExt": "+687"
+    },
+    {
+        "country": "New Zealand",
+        "phoneExt": "+64"
+    },
+    {
+        "country": "Nicaragua",
+        "phoneExt": "+505"
+    },
+    {
+        "country": "Niger",
+        "phoneExt": "+227"
+    },
+    {
+        "country": "Nigeria",
+        "phoneExt": "+234"
+    },
+    {
+        "country": "Niue",
+        "phoneExt": "+683"
+    },
+    {
+        "country": "North Korea",
+        "phoneExt": "+850"
+    },
+    {
+        "country": "Northern Mariana Islands",
+        "phoneExt": "+1-670"
+    },
+    {
+        "country": "Norway",
+        "phoneExt": "+47"
+    },
+    {
+        "country": "Oman",
+        "phoneExt": "+968"
+    },
+    {
+        "country": "Pakistan",
+        "phoneExt": "+92"
+    },
+    {
+        "country": "Palau",
+        "phoneExt": "+680"
+    },
+    {
+        "country": "Palestine",
+        "phoneExt": "+970"
+    },
+    {
+        "country": "Panama",
+        "phoneExt": "+507"
+    },
+    {
+        "country": "Papua New Guinea",
+        "phoneExt": "+675"
+    },
+    {
+        "country": "Paraguay",
+        "phoneExt": "+595"
+    },
+    {
+        "country": "Peru",
+        "phoneExt": "+51"
+    },
+    {
+        "country": "Philippines",
+        "phoneExt": "+63"
+    },
+    {
+        "country": "Pitcairn",
+        "phoneExt": "+64"
+    },
+    {
+        "country": "Poland",
+        "phoneExt": "+48"
+    },
+    {
+        "country": "Portugal",
+        "phoneExt": "+351"
+    },
+    {
+        "country": "Puerto Rico",
+        "phoneExt": "+1-787"
+    },
+    {
+        "country": "Qatar",
+        "phoneExt": "+974"
+    },
+    {
+        "country": "Republic of the Congo",
+        "phoneExt": "+242"
+    },
+    {
+        "country": "Reunion",
+        "phoneExt": "+262"
+    },
+    {
+        "country": "Romania",
+        "phoneExt": "+40"
+    },
+    {
+        "country": "Russia",
+        "phoneExt": "+7"
+    },
+    {
+        "country": "Rwanda",
+        "phoneExt": "+250"
+    },
+    {
+        "country": "Saint Barthelemy",
+        "phoneExt": "+590"
+    },
+    {
+        "country": "Saint Helena",
+        "phoneExt": "+290"
+    },
+    {
+        "country": "Saint Kitts and Nevis",
+        "phoneExt": "+1-869"
+    },
+    {
+        "country": "Saint Lucia",
+        "phoneExt": "+1-758"
+    },
+    {
+        "country": "Saint Martin",
+        "phoneExt": "+590"
+    },
+    {
+        "country": "Saint Pierre and Miquelon",
+        "phoneExt": "+508"
+    },
+    {
+        "country": "Saint Vincent and the Grenadines",
+        "phoneExt": "+1-784"
+    },
+    {
+        "country": "Samoa",
+        "phoneExt": "+685"
+    },
+    {
+        "country": "San Marino",
+        "phoneExt": "+378"
+    },
+    {
+        "country": "Sao Tome and Principe",
+        "phoneExt": "+239"
+    },
+    {
+        "country": "Saudi Arabia",
+        "phoneExt": "+966"
+    },
+    {
+        "country": "Senegal",
+        "phoneExt": "+221"
+    },
+    {
+        "country": "Serbia",
+        "phoneExt": "+381"
+    },
+    {
+        "country": "Seychelles",
+        "phoneExt": "+248"
+    },
+    {
+        "country": "Sierra Leone",
+        "phoneExt": "+232"
+    },
+    {
+        "country": "Singapore",
+        "phoneExt": "+65"
+    },
+    {
+        "country": "Sint Maarten",
+        "phoneExt": "+1-721"
+    },
+    {
+        "country": "Slovakia",
+        "phoneExt": "+421"
+    },
+    {
+        "country": "Slovenia",
+        "phoneExt": "+386"
+    },
+    {
+        "country": "Solomon Islands",
+        "phoneExt": "+677"
+    },
+    {
+        "country": "Somalia",
+        "phoneExt": "+252"
+    },
+    {
+        "country": "South Africa",
+        "phoneExt": "+27"
+    },
+    {
+        "country": "South Korea",
+        "phoneExt": "+82"
+    },
+    {
+        "country": "South Sudan",
+        "phoneExt": "+211"
+    },
+    {
+        "country": "Spain",
+        "phoneExt": "+34"
+    },
+    {
+        "country": "Sri Lanka",
+        "phoneExt": "+94"
+    },
+    {
+        "country": "Sudan",
+        "phoneExt": "+249"
+    },
+    {
+        "country": "Suriname",
+        "phoneExt": "+597"
+    },
+    {
+        "country": "Svalbard and Jan Mayen",
+        "phoneExt": "+47"
+    },
+    {
+        "country": "Swaziland",
+        "phoneExt": "+268"
+    },
+    {
+        "country": "Sweden",
+        "phoneExt": "+46"
+    },
+    {
+        "country": "Switzerland",
+        "phoneExt": "+41"
+    },
+    {
+        "country": "Syria",
+        "phoneExt": "+963"
+    },
+    {
+        "country": "Taiwan",
+        "phoneExt": "+886"
+    },
+    {
+        "country": "Tajikistan",
+        "phoneExt": "+992"
+    },
+    {
+        "country": "Tanzania",
+        "phoneExt": "+255"
+    },
+    {
+        "country": "Thailand",
+        "phoneExt": "+66"
+    },
+    {
+        "country": "Togo",
+        "phoneExt": "+228"
+    },
+    {
+        "country": "Tokelau",
+        "phoneExt": "+690"
+    },
+    {
+        "country": "Tonga",
+        "phoneExt": "+676"
+    },
+    {
+        "country": "Trinidad and Tobago",
+        "phoneExt": "+1-868"
+    },
+    {
+        "country": "Tunisia",
+        "phoneExt": "+216"
+    },
+    {
+        "country": "Turkey",
+        "phoneExt": "+90"
+    },
+    {
+        "country": "Turkmenistan",
+        "phoneExt": "+993"
+    },
+    {
+        "country": "Turks and Caicos Islands",
+        "phoneExt": "+1-649"
+    },
+    {
+        "country": "Tuvalu",
+        "phoneExt": "+688"
+    },
+    {
+        "country": "U.S. Virgin Islands",
+        "phoneExt": "+1-340"
+    },
+    {
+        "country": "Uganda",
+        "phoneExt": "+256"
+    },
+    {
+        "country": "Ukraine",
+        "phoneExt": "+380"
+    },
+    {
+        "country": "United Arab Emirates",
+        "phoneExt": "+971"
+    },
+    {
+        "country": "United Kingdom",
+        "phoneExt": "+44"
+    },
+    {
+        "country": "United States",
+        "phoneExt": "+1"
+    },
+    {
+        "country": "Uruguay",
+        "phoneExt": "+598"
+    },
+    {
+        "country": "Uzbekistan",
+        "phoneExt": "+998"
+    },
+    {
+        "country": "Vanuatu",
+        "phoneExt": "+678"
+    },
+    {
+        "country": "Vatican",
+        "phoneExt": "+379"
+    },
+    {
+        "country": "Venezuela",
+        "phoneExt": "+58"
+    },
+    {
+        "country": "Vietnam",
+        "phoneExt": "+84"
+    },
+    {
+        "country": "Wallis and Futuna",
+        "phoneExt": "+681"
+    },
+    {
+        "country": "Western Sahara",
+        "phoneExt": "+212"
+    },
+    {
+        "country": "Yemen",
+        "phoneExt": "+967"
+    },
+    {
+        "country": "Zambia",
+        "phoneExt": "+260"
+    },
+    {
+        "country": "Zimbabwe",
+        "phoneExt": "+263"
+    }
+]
