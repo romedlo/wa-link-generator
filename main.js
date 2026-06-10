@@ -4,24 +4,37 @@ document.addEventListener('DOMContentLoaded', main);
 
 const $ = selector => document.querySelector(selector);
 
-function main() {
+// Detect language and base asset path from current URL
+const IS_SPANISH = window.location.pathname.includes('/es');
+const BASE_PATH = IS_SPANISH ? '../' : './';
+
+// Load the correct i18n strings for dynamic JS text
+async function loadI18n() {
+    const lang = IS_SPANISH ? 'es' : 'en';
+    const response = await fetch(`${BASE_PATH}assets/i18n/${lang}.json`);
+    return await response.json();
+}
+
+async function main() {
+    const i18n = await loadI18n();
+
     // Set default value on load
     $('#dropdown-country-code').value = '+505';
 
     // 1. Fetch & Initialize Country Code Dropdown with Search
     getCountryCodes().then(countryCodes => {
         const listContainer = $('#list-country-codes');
-        
+
         countryCodes.forEach(code => {
             const item = document.createElement('div');
             item.classList.add('country-item');
-            
+
             // Country Code Span
             const codeSpan = document.createElement('span');
             codeSpan.classList.add('country-code-val');
             codeSpan.innerText = code.phoneExt;
             item.appendChild(codeSpan);
-            
+
             // Country Name Span
             const nameSpan = document.createElement('span');
             nameSpan.classList.add('country-name-val');
@@ -36,7 +49,7 @@ function main() {
 
             listContainer.appendChild(item);
         });
-        
+
         // Focus search bar when dropdown is opened
         const dropdownBtn = $('#dropdown-country-code');
         dropdownBtn.addEventListener('shown.bs.dropdown', () => {
@@ -48,11 +61,11 @@ function main() {
     $('#search-country-code').oninput = (event) => {
         const query = event.target.value.toLowerCase().trim();
         const items = $('#list-country-codes').querySelectorAll('.country-item');
-        
+
         items.forEach(item => {
             const countryName = item.querySelector('.country-name-val').innerText.toLowerCase();
             const countryCode = item.querySelector('.country-code-val').innerText.toLowerCase();
-            
+
             if (countryName.includes(query) || countryCode.includes(query)) {
                 item.style.setProperty('display', 'flex', 'important');
             } else {
@@ -96,13 +109,13 @@ function main() {
 
         let countryCode = $('#dropdown-country-code').value?.trim();
         if (countryCode == null || countryCode.length == 0) {
-            showError('You must select a country code');
+            showError(i18n.error.selectCountryCode);
             return;
         }
 
         let phone = $('#input-phone-number').value?.trim();
         if (phone == null || phone.length == 0) {
-            showError('You must enter a phone number');
+            showError(i18n.error.enterPhoneNumber);
             return;
         }
 
@@ -110,25 +123,27 @@ function main() {
 
         let generatedUrl = generateUrl(countryCode, phone, message);
         if (generatedUrl == null) {
-            showError('An error occurred while generating the URL');
+            showError(i18n.error.generatingUrl);
             return;
         }
 
         // Show result display
         $('#generated-url').href =
             $('#generated-url').innerText = generatedUrl;
-        
+
         // Show test URL action link
         $('#btn-test-url').href = generatedUrl;
-        
+
         // Show QR Code image
         const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(generatedUrl)}`;
-        $('#qr-code-img').src = qrUrl;
+        const qrImg = $('#qr-code-img');
+        qrImg.src = qrUrl;
+        qrImg.alt = i18n.ui.qrAlt;
 
         // Render result area
         $('#result-url').style.display = 'block';
         $('#error-message').style.display = 'none';
-        
+
         // Smooth scroll to the result
         setTimeout(() => {
             $('#result-url').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -143,9 +158,9 @@ function main() {
 
         navigator.clipboard.writeText(url).then(() => {
             let prevContent = $('#btn-copy-url').innerHTML;
-            $('#btn-copy-url').innerText = 'Copied!';
+            $('#btn-copy-url').innerText = i18n.ui.copied;
             $('#btn-copy-url').classList.add('copied');
-            
+
             setTimeout(() => {
                 $('#btn-copy-url').innerHTML = prevContent;
                 $('#btn-copy-url').classList.remove('copied');
@@ -162,7 +177,7 @@ function main() {
 
         const downloadQrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(url)}`;
         const originalContent = $('#btn-download-qr').innerHTML;
-        $('#btn-download-qr').innerText = 'Downloading...';
+        $('#btn-download-qr').innerText = i18n.ui.downloading;
 
         fetch(downloadQrUrl)
             .then(res => {
@@ -184,7 +199,7 @@ function main() {
             .catch(err => {
                 console.error(err);
                 $('#btn-download-qr').innerHTML = originalContent;
-                alert('Failed to download QR code. You can right-click the QR code image and select "Save image as..." instead.');
+                alert(i18n.error.downloadQr);
             });
     };
 }
@@ -193,7 +208,7 @@ function showError(errorMsg) {
     $('#error-message-text').innerText = errorMsg;
     $('#error-message').style.display = 'block';
     $('#result-url').style.display = 'none';
-    
+
     setTimeout(() => {
         $('#error-message').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }, 100);
@@ -201,7 +216,6 @@ function showError(errorMsg) {
 
 function generateUrl(countryCode, phone, message) {
     phone = phone.replaceAll(' ', '');
-    // Remove leading '+' from countryCode if present in the final phone value
     let cleanCode = countryCode.replace('+', '');
     let url = `https://wa.me/${cleanCode}${phone}`;
 
@@ -213,6 +227,6 @@ function generateUrl(countryCode, phone, message) {
 }
 
 async function getCountryCodes() {
-    const response = await fetch('./assets/country_codes.json');
+    const response = await fetch(`${BASE_PATH}assets/country_codes.json`);
     return await response.json();
 }

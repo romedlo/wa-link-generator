@@ -1,0 +1,13 @@
+{
+  "error": {
+    "selectCountryCode": "Debes seleccionar un código de país",
+    "enterPhoneNumber": "Debes ingresar un número de teléfono",
+    "generatingUrl": "Ocurrió un error al generar el enlace",
+    "downloadQr": "Error al descargar el código QR. Haz clic derecho en la imagen del QR y selecciona \"Guardar imagen como...\"."
+  },
+  "ui": {
+    "copied": "¡Copiado!",
+    "downloading": "Descargando...",
+    "qrAlt": "Código QR para el enlace de WhatsApp"
+  }
+}

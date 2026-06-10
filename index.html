@@ -2,11 +2,51 @@
 <html lang="en">
 
 <head>
-    <title>WhatsApp Link Generator</title>
+    <title>Free WhatsApp Link Generator with QR Code | MedLoSoft</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
-    <meta name="description" content="Generate short, shareable WhatsApp links instantly with prefilled custom messages and QR codes.">
+    <meta name="description"
+        content="Generate free, custom, shareable WhatsApp chat links with prefilled messages and download custom QR codes instantly. Perfect tool for business & chat sharing.">
+    <meta name="keywords"
+        content="whatsapp, link, qr, generator, whatsapp link, wa.me link, chat link, whatsapp qr code, free whatsapp link generator, create whatsapp link">
+    <meta name="author" content="MedLoSoft">
+
+    <!-- Open Graph Metadata for Social Media -->
+    <meta property="og:title" content="Free WhatsApp Link & QR Code Generator">
+    <meta property="og:description"
+        content="Create short, shareable WhatsApp links with custom messages and QR codes instantly. Free to use with no ads.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/whatsapp_logo.png">
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Free WhatsApp Link & QR Code Generator">
+    <meta name="twitter:description" content="Generate WhatsApp chat links and QR codes instantly.">
+
+    <!-- JSON-LD Structured Data Schema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "WhatsApp Link Generator",
+      "url": "https://romedlo.github.io/wa-link-generator/",
+      "description": "Generate free shareable WhatsApp chat links with custom prefilled messages and download QR codes.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires HTML5 compatible browser",
+      "author": {
+        "@type": "Organization",
+        "name": "MedLoSoft"
+      }
+    }
+    </script>
+
+    <!-- Canonical & Hreflang for multilingual SEO -->
+    <link rel="canonical" href="https://romedlo.github.io/wa-link-generator/">
+    <link rel="alternate" hreflang="en" href="https://romedlo.github.io/wa-link-generator/">
+    <link rel="alternate" hreflang="es" href="https://romedlo.github.io/wa-link-generator/es/">
+    <link rel="alternate" hreflang="x-default" href="https://romedlo.github.io/wa-link-generator/">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -23,13 +63,21 @@
 
     <!-- Main Container Card -->
     <main class="glass-card">
+        <!-- Language Switcher -->
+        <nav class="lang-switcher" aria-label="Language selector">
+            <span class="lang-btn lang-active" aria-current="true">EN</span>
+            <a href="./es/" class="lang-btn" hreflang="es" lang="es">ES</a>
+        </nav>
+
         <header class="text-center text-sm-start d-flex flex-column flex-sm-row align-items-center gap-3 mb-4">
             <div class="flex-grow-1">
                 <h1 class="app-title">WhatsApp Link Generator</h1>
-                <p class="app-subtitle">Create shareable links with pre-filled messages and secure QR codes instantly.</p>
+                <p class="app-subtitle">Create shareable links with pre-filled messages and secure QR codes
+                    instantly.</p>
             </div>
             <div class="logo-wrapper" style="width: 65px; height: 65px; opacity: 0.95;">
-                <img src="./assets/whatsapp_logo.png" alt="WhatsApp" class="img-fluid" style="filter: drop-shadow(0 4px 10px rgba(37, 211, 102, 0.35));">
+                <img src="./assets/whatsapp_logo.png" alt="WhatsApp" class="img-fluid"
+                    style="filter: drop-shadow(0 4px 10px rgba(37, 211, 102, 0.35));">
             </div>
         </header>
 
@@ -43,20 +91,23 @@
                 <div class="step-content">
                     <div class="custom-input-group">
                         <div class="dropdown">
-                            <button id="dropdown-country-code" class="dropdown-country-btn dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                            <button id="dropdown-country-code" class="dropdown-country-btn dropdown-toggle"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                data-bs-auto-close="outside">
                                 +505
                             </button>
                             <div class="dropdown-menu dropdown-menu-custom">
                                 <div class="dropdown-search-wrapper">
-                                    <input type="text" id="search-country-code" class="dropdown-search-input" placeholder="Search country or code..." autofocus>
+                                    <input type="text" id="search-country-code" class="dropdown-search-input"
+                                        placeholder="Search country or code..." autofocus>
                                 </div>
                                 <div id="list-country-codes">
                                     <!-- Dynamic country items injected here -->
                                 </div>
                             </div>
                         </div>
-                        <input id="input-phone-number" class="phone-control-input" type="tel" placeholder="1234 5678" required></input>
+                        <input id="input-phone-number" class="phone-control-input" type="tel" placeholder="1234 5678"
+                            required></input>
                     </div>
                 </div>
             </section>
@@ -68,7 +119,8 @@
                     <h2 class="step-title">Enter Your Message (Optional)</h2>
                 </div>
                 <div class="step-content">
-                    <textarea id="input-message" class="message-control-textarea" placeholder="Type a message that will automatically appear in the chat..."></textarea>
+                    <textarea id="input-message" class="message-control-textarea"
+                        placeholder="Type a message that will automatically appear in the chat..."></textarea>
                 </div>
             </section>
 
@@ -80,7 +132,11 @@
                 </div>
                 <div class="step-content pt-1">
                     <button id="btn-generate-url" class="btn-generate" type="submit">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                        </svg>
                         Generate Link
                     </button>
                 </div>
@@ -89,7 +145,12 @@
             <!-- Error Dialog box -->
             <div id="error-message" class="error-alert-box" role="alert">
                 <div class="error-alert-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
                     Error
                 </div>
                 <p id="error-message-text" class="m-0"></p>
@@ -98,14 +159,22 @@
             <!-- STEP 4: Dynamic Results Screen -->
             <section id="result-url" class="result-section">
                 <div class="result-card-header">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--wa-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--wa-green)"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
                     <h2 class="result-title">Generated WhatsApp Link</h2>
                 </div>
-                
+
                 <div class="result-link-box">
                     <a id="generated-url" class="result-link-display" href="#" target="_blank"></a>
                     <button type="button" id="btn-copy-url" class="btn-action-copy">
-                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                        </svg>
                         Copy
                     </button>
                 </div>
@@ -113,15 +182,25 @@
                 <div class="result-actions-grid">
                     <div class="result-main-actions">
                         <a id="btn-test-url" href="#" target="_blank" class="btn-action-secondary">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
                             Open in WhatsApp
                         </a>
                     </div>
-                    
+
                     <div class="qr-container">
                         <img id="qr-code-img" class="qr-code-img" src="" alt="QR Code Link">
                         <button type="button" id="btn-download-qr" class="btn-download-qr">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
                             Download QR
                         </button>
                     </div>
@@ -129,6 +208,30 @@
             </section>
         </form>
     </main>
+
+    <!-- App Footer -->
+    <footer class="app-footer">
+        <p class="mb-2">Made with ❤️ by <a href="#" target="_blank" class="footer-link">MedLoSoft</a> 2024</p>
+        <div class="footer-socials">
+            <a href="https://github.com/romedlo" target="_blank" class="social-icon" aria-label="GitHub">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                </svg>
+            </a>
+            <a href="https://linkedin.com/in/robert-medlo" target="_blank" class="social-icon" aria-label="LinkedIn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect x="2" y="9" width="4" height="12"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+            </a>
+        </div>
+    </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
