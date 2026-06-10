@@ -6,6 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
+    <meta name="description" content="Generate short, shareable WhatsApp links instantly with prefilled custom messages and QR codes.">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -13,67 +14,121 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col">
-                <h1>WhatsApp Link Generator</h1>
+    <!-- Animated Blurred Background -->
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- Main Container Card -->
+    <main class="glass-card">
+        <header class="text-center text-sm-start d-flex flex-column flex-sm-row align-items-center gap-3 mb-4">
+            <div class="flex-grow-1">
+                <h1 class="app-title">WhatsApp Link Generator</h1>
+                <p class="app-subtitle">Create shareable links with pre-filled messages and secure QR codes instantly.</p>
             </div>
-            <div class="col-4">
-                <img src="./assets/whatsapp_logo.png" alt="WhatsApp Logo" class="img-fluid">
+            <div class="logo-wrapper" style="width: 65px; height: 65px; opacity: 0.95;">
+                <img src="./assets/whatsapp_logo.png" alt="WhatsApp" class="img-fluid" style="filter: drop-shadow(0 4px 10px rgba(37, 211, 102, 0.35));">
             </div>
-        </div>
-        <br>
-        <div>
-            <form id='form-generate-url'>
-                <label for="input-phone-number" class="form-label">Enter your phone number</label>
-                <br>
-                <div class="row">
-                    <div class="col-2">
+        </header>
+
+        <form id="form-generate-url" class="stepper-container" autocomplete="off">
+            <!-- STEP 1: Phone Number -->
+            <section class="step-card active" id="step-card-phone">
+                <div class="step-badge">1</div>
+                <div class="step-header">
+                    <h2 class="step-title">Enter Phone Number</h2>
+                </div>
+                <div class="step-content">
+                    <div class="custom-input-group">
                         <div class="dropdown">
-                            <button id="dropdown-country-code" class="btn btn-success dropdown-toggle" type="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <button id="dropdown-country-code" class="dropdown-country-btn dropdown-toggle" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                                 +505
                             </button>
-                            <ul id="list-country-codes" class="dropdown-menu"></ul>
+                            <div class="dropdown-menu dropdown-menu-custom">
+                                <div class="dropdown-search-wrapper">
+                                    <input type="text" id="search-country-code" class="dropdown-search-input" placeholder="Search country or code..." autofocus>
+                                </div>
+                                <div id="list-country-codes">
+                                    <!-- Dynamic country items injected here -->
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-4">
-                        <input id="input-phone-number" class="form-control" type="tel" placeholder="1234 5678"></input>
+                        <input id="input-phone-number" class="phone-control-input" type="tel" placeholder="1234 5678" required></input>
                     </div>
                 </div>
-                <br>
-                <label for="input-message" class="form-label">Enter your message</label>
-                <div class="row">
-                    <div class="col">
-                        <textarea id="input-message" class="form-control" placeholder="(optional)"></textarea>
-                    </div>
+            </section>
+
+            <!-- STEP 2: Custom Message -->
+            <section class="step-card" id="step-card-message">
+                <div class="step-badge">2</div>
+                <div class="step-header">
+                    <h2 class="step-title">Enter Your Message (Optional)</h2>
                 </div>
-                <br>
-                <input id="btn-generate-url" class="btn btn-success" type="submit" value="Generate URL"></input>
-            </form>
-            <br>
-            <div id="error-message" class="alert alert-danger" role="alert">
-                <h5>Error</h5>
-                <p id="error-message-text"></p>
+                <div class="step-content">
+                    <textarea id="input-message" class="message-control-textarea" placeholder="Type a message that will automatically appear in the chat..."></textarea>
+                </div>
+            </section>
+
+            <!-- STEP 3: Generate URL -->
+            <section class="step-card" id="step-card-generate">
+                <div class="step-badge">3</div>
+                <div class="step-header">
+                    <h2 class="step-title">Generate Link</h2>
+                </div>
+                <div class="step-content pt-1">
+                    <button id="btn-generate-url" class="btn-generate" type="submit">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                        Generate Link
+                    </button>
+                </div>
+            </section>
+
+            <!-- Error Dialog box -->
+            <div id="error-message" class="error-alert-box" role="alert">
+                <div class="error-alert-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                    Error
+                </div>
+                <p id="error-message-text" class="m-0"></p>
             </div>
-            <div id="result-url" class="alert alert-success" role="alert">
-                <h5>Generated URL</h5>
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <a id="generated-url" href="#" target="_blank"></a>
-                        </div>
-                        <div class="col-2">
-                            <button id="btn-copy-url" class="btn btn-success"><img src="assets/copy_icon.svg"
-                                    alt="Copy" /> Copy</button>
-                        </div>
+
+            <!-- STEP 4: Dynamic Results Screen -->
+            <section id="result-url" class="result-section">
+                <div class="result-card-header">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--wa-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <h2 class="result-title">Generated WhatsApp Link</h2>
+                </div>
+                
+                <div class="result-link-box">
+                    <a id="generated-url" class="result-link-display" href="#" target="_blank"></a>
+                    <button type="button" id="btn-copy-url" class="btn-action-copy">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Copy
+                    </button>
+                </div>
+
+                <div class="result-actions-grid">
+                    <div class="result-main-actions">
+                        <a id="btn-test-url" href="#" target="_blank" class="btn-action-secondary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            Open in WhatsApp
+                        </a>
+                    </div>
+                    
+                    <div class="qr-container">
+                        <img id="qr-code-img" class="qr-code-img" src="" alt="QR Code Link">
+                        <button type="button" id="btn-download-qr" class="btn-download-qr">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            Download QR
+                        </button>
                     </div>
                 </div>
-            </div>
-            <br>
-            <br>
-        </div>
-    </div>
+            </section>
+        </form>
+    </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
