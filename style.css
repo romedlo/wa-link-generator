@@ -36,7 +36,19 @@ body {
     justify-content: flex-start;
     overflow-x: hidden;
     position: relative;
-    padding: 2rem 1rem 0;
+    padding: 0;
+}
+
+/* --- Viewport Wrapper for Generator --- */
+.main-viewport {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2.5rem 1.25rem;
+    box-sizing: border-box;
 }
 
 
@@ -272,6 +284,10 @@ body {
     cursor: pointer;
     font-size: 0.9rem;
     transition: background 0.2s ease;
+    background: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
 }
 
 .country-item:hover {
@@ -564,12 +580,20 @@ body {
     gap: 0.4rem;
 }
 
-/* --- Language Switcher --- */
+/* --- Language Switcher (fixed, global top-right) --- */
 .lang-switcher {
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 100;
     display: flex;
-    justify-content: flex-end;
     gap: 0.3rem;
-    margin-bottom: 1.25rem;
+    background: rgba(11, 20, 26, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 0.2rem;
 }
 
 .lang-btn {
@@ -619,10 +643,7 @@ body {
 .app-footer {
     z-index: 10;
     margin-top: auto;
-    /* break out of body's 1rem side padding so footer spans full viewport width */
-    width: calc(100% + 2rem);
-    margin-left: -1rem;
-    margin-right: -1rem;
+    width: 100%;
     color: var(--text-secondary);
     font-size: 0.85rem;
     font-weight: 500;
@@ -769,10 +790,9 @@ body {
 
 /* --- Info Section Styles --- */
 .info-section {
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin: 2rem auto;
     padding: 2.25rem;
-    width: 100%;
+    width: calc(100% - 2.5rem);
     max-width: 900px;
 }
 
@@ -904,8 +924,6 @@ body {
     flex-direction: column;
     height: 485px;
     box-shadow: var(--shadow-soft);
-    position: sticky;
-    top: 2.5rem;
 }
 
 .mock-wa-header {
@@ -1061,4 +1079,29 @@ body {
 .mock-wa-send-btn:hover {
     transform: scale(1.05);
     filter: brightness(1.08);
+}
+
+/* --- Scroll Reveal for Info Section --- */
+
+/* Initial hidden state */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* JS fallback: add .is-visible when IntersectionObserver fires */
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll,
+    .reveal-on-scroll.is-visible {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }

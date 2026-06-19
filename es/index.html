@@ -60,13 +60,15 @@
         <div class="blob blob-3"></div>
     </div>
 
-    <!-- Tarjeta Principal -->
-    <main class="glass-card">
-        <!-- Selector de Idioma -->
-        <nav class="lang-switcher" aria-label="Selector de idioma">
-            <a href="../" class="lang-btn" hreflang="en" lang="en">EN</a>
-            <span class="lang-btn lang-active" aria-current="true">ES</span>
-        </nav>
+    <!-- Selector de Idioma (global, esquina superior derecha) -->
+    <nav class="lang-switcher" aria-label="Selector de idioma">
+        <a href="../" class="lang-btn" hreflang="en" lang="en">EN</a>
+        <span class="lang-btn lang-active" aria-current="true">ES</span>
+    </nav>
+
+    <!-- Tarjeta Principal dentro del Viewport -->
+    <div class="main-viewport">
+        <main class="glass-card">
 
         <header class="text-center text-sm-start d-flex flex-column flex-sm-row align-items-center gap-3 mb-4">
             <div class="flex-grow-1">
@@ -221,10 +223,11 @@
                 </div>
             </div>
         </div>
-    </main>
+        </main>
+    </div>
 
     <!-- Sección Informativa SEO -->
-    <section class="info-section glass-card">
+    <section class="info-section glass-card reveal-on-scroll">
         <div class="row">
             <!-- Cómo funciona -->
             <div class="col-md-6 mb-4 mb-md-0">
@@ -304,6 +307,20 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../main.js"></script>
+    <script>
+        const observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                }
+            },
+            { threshold: 0.1 }
+        );
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>

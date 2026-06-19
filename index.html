@@ -62,13 +62,15 @@
         <div class="blob blob-3"></div>
     </div>
 
-    <!-- Main Container Card -->
-    <main class="glass-card">
-        <!-- Language Switcher -->
-        <nav class="lang-switcher" aria-label="Language selector">
-            <span class="lang-btn lang-active" aria-current="true">EN</span>
-            <a href="./es/" class="lang-btn" hreflang="es" lang="es">ES</a>
-        </nav>
+    <!-- Language Switcher (global, top-right) -->
+    <nav class="lang-switcher" aria-label="Language selector">
+        <span class="lang-btn lang-active" aria-current="true">EN</span>
+        <a href="./es/" class="lang-btn" hreflang="es" lang="es">ES</a>
+    </nav>
+
+    <!-- Main Container Card inside Viewport -->
+    <div class="main-viewport">
+        <main class="glass-card">
 
         <header class="text-center text-sm-start d-flex flex-column flex-sm-row align-items-center gap-3 mb-4">
             <div class="flex-grow-1">
@@ -256,10 +258,11 @@
                 </div>
             </div>
         </div>
-    </main>
+        </main>
+    </div>
 
     <!-- Info Section -->
-    <section class="info-section glass-card">
+    <section class="info-section glass-card reveal-on-scroll">
         <div class="row">
             <!-- How it works -->
             <div class="col-md-6 mb-4 mb-md-0">
@@ -350,6 +353,20 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="main.js"></script>
+    <script>
+        const observer = new IntersectionObserver(
+            (entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                }
+            },
+            { threshold: 0.1 }
+        );
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>

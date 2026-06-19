@@ -2,6 +2,7 @@
   "error": {
     "selectCountryCode": "You must select a country code",
     "enterPhoneNumber": "You must enter a phone number",
+    "invalidPhoneNumber": "Please enter a valid phone number (between 7 and 15 digits)",
     "generatingUrl": "An error occurred while generating the URL",
     "downloadQr": "Failed to download QR code. You can right-click the QR code image and select \"Save image as...\" instead."
   },

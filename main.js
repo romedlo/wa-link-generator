@@ -18,15 +18,34 @@ async function loadI18n() {
 async function main() {
     const i18n = await loadI18n();
 
-    // Set default value on load
+    // Set default value on load (using IP geolocation, falling back to +505)
     $('#dropdown-country-code').value = '+505';
+    fetch('https://ipapi.co/json/')
+        .then(res => res.json())
+        .then(data => {
+            if (data && data.country_calling_code) {
+                let code = data.country_calling_code;
+                if (!code.startsWith('+')) {
+                    code = '+' + code;
+                }
+                $('#dropdown-country-code').innerText =
+                    $('#dropdown-country-code').value = code;
+                updatePreview();
+            }
+        })
+        .catch(err => {
+            console.warn('IP geolocation failed, using default +505.', err);
+            $('#dropdown-country-code').innerText =
+                $('#dropdown-country-code').value = '+505';
+        });
 
     // 1. Fetch & Initialize Country Code Dropdown with Search
     getCountryCodes().then(countryCodes => {
         const listContainer = $('#list-country-codes');
 
         countryCodes.forEach(code => {
-            const item = document.createElement('div');
+            const item = document.createElement('button');
+            item.type = 'button';
             item.classList.add('country-item');
 
             // Country Code Span
@@ -43,9 +62,13 @@ async function main() {
 
             // Click action
             item.onclick = () => {
-                $('#dropdown-country-code').innerText =
-                    $('#dropdown-country-code').value = code.phoneExt;
+                const btn = $('#dropdown-country-code');
+                btn.innerText = btn.value = code.phoneExt;
                 updatePreview();
+                const bsDropdown = bootstrap.Dropdown.getOrCreateInstance(btn);
+                if (bsDropdown) {
+                    bsDropdown.hide();
+                }
             };
 
             listContainer.appendChild(item);
@@ -84,8 +107,29 @@ async function main() {
         phoneCard.classList.add('active');
     });
 
-    $('#input-phone-number').addEventListener('input', () => {
-        if ($('#input-phone-number').value.trim() !== '') {
+    $('#input-phone-number').addEventListener('input', (e) => {
+        const input = e.target;
+        let oldVal = input.value;
+        let selectionStart = input.selectionStart;
+        let cleanVal = oldVal.replace(/\D/g, '');
+        
+        let newVal = formatPhoneNumber(cleanVal);
+        
+        // Preserve selection cursor position
+        let digitsBeforeCursor = oldVal.slice(0, selectionStart).replace(/\D/g, '').length;
+        input.value = newVal;
+        
+        let newSelectionStart = 0;
+        let digitCount = 0;
+        while (newSelectionStart < newVal.length && digitCount < digitsBeforeCursor) {
+            if (/\d/.test(newVal[newSelectionStart])) {
+                digitCount++;
+            }
+            newSelectionStart++;
+        }
+        input.setSelectionRange(newSelectionStart, newSelectionStart);
+
+        if (cleanVal !== '') {
             messageCard.classList.add('active');
             generateCard.classList.add('active');
         } else {
@@ -155,6 +199,12 @@ async function main() {
         let phone = $('#input-phone-number').value?.trim();
         if (phone == null || phone.length == 0) {
             showError(i18n.error.enterPhoneNumber);
+            return;
+        }
+
+        let phoneDigits = phone.replace(/\D/g, '');
+        if (phoneDigits.length < 7 || phoneDigits.length > 15) {
+            showError(i18n.error.invalidPhoneNumber);
             return;
         }
 
@@ -268,4 +318,20 @@ function generateUrl(countryCode, phone, message) {
 async function getCountryCodes() {
     const response = await fetch(`${BASE_PATH}assets/country_codes.json`);
     return await response.json();
+}
+
+function formatPhoneNumber(digits) {
+    if (digits.length <= 4) {
+        return digits;
+    } else if (digits.length <= 8) {
+        return `${digits.slice(0, 4)} ${digits.slice(4)}`;
+    } else if (digits.length === 9) {
+        return `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`;
+    } else if (digits.length === 10) {
+        return `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`;
+    } else if (digits.length === 11) {
+        return `${digits.slice(0, 3)} ${digits.slice(3, 7)} ${digits.slice(7)}`;
+    } else {
+        return digits.replace(/(\d{4})(?=\d)/g, '$1 ').trim();
+    }
 }
