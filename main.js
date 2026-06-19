@@ -45,6 +45,7 @@ async function main() {
             item.onclick = () => {
                 $('#dropdown-country-code').innerText =
                     $('#dropdown-country-code').value = code.phoneExt;
+                updatePreview();
             };
 
             listContainer.appendChild(item);
@@ -91,6 +92,7 @@ async function main() {
             messageCard.classList.remove('active');
             generateCard.classList.remove('active');
         }
+        updatePreview();
     });
 
     $('#input-message').addEventListener('focus', () => {
@@ -98,6 +100,43 @@ async function main() {
         messageCard.classList.add('active');
         generateCard.classList.add('active');
     });
+
+    $('#input-message').addEventListener('input', () => {
+        updatePreview();
+    });
+
+    // Mock WhatsApp live preview sync function
+    function updatePreview() {
+        // 1. Update Contact Name / Phone Number
+        let countryCode = $('#dropdown-country-code').value || '+505';
+        let phone = $('#input-phone-number').value?.trim() || '';
+        
+        let previewName = $('#preview-contact-name');
+        if (previewName) {
+            if (phone === '') {
+                previewName.innerText = IS_SPANISH ? 'Contacto de WhatsApp' : 'WhatsApp Contact';
+            } else {
+                previewName.innerText = `${countryCode} ${phone}`;
+            }
+        }
+        
+        // 2. Update Custom Message
+        let message = $('#input-message').value || '';
+        let waInput = $('#preview-wa-input');
+        
+        if (waInput) {
+            if (message.trim() === '') {
+                waInput.innerText = IS_SPANISH ? 'Escribe un mensaje' : 'Type a message';
+                waInput.classList.add('placeholder');
+            } else {
+                waInput.innerText = message;
+                waInput.classList.remove('placeholder');
+            }
+        }
+    }
+
+    // Run initial preview setup
+    updatePreview();
 
     // 4. Form Submit & URL Generation Flow
     $('#form-generate-url').onsubmit = (event) => {

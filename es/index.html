@@ -78,7 +78,9 @@
             </div>
         </header>
 
-        <form id="form-generate-url" class="stepper-container" autocomplete="off">
+        <div class="row">
+            <div class="col-lg-7">
+                <form id="form-generate-url" class="stepper-container" autocomplete="off">
             <!-- PASO 1: Número de Teléfono -->
             <section class="step-card active" id="step-card-phone">
                 <div class="step-badge">1</div>
@@ -173,7 +175,117 @@
                 </div>
             </section>
         </form>
+            </div>
+            <div class="col-lg-5 d-none d-lg-block">
+                <div class="preview-column">
+                    <div class="mock-wa-card">
+                        <div class="mock-wa-header">
+                            <div class="mock-wa-avatar">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                                </svg>
+                            </div>
+                            <div class="mock-wa-info">
+                                <span id="preview-contact-name" class="mock-wa-name">Contacto de WhatsApp</span>
+                                <span class="mock-wa-status">En línea</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mock-wa-body">
+                            <div class="mock-wa-date">HOY</div>
+                            
+                            <div class="mock-wa-bubble-system">
+                                🔒 Los mensajes y llamadas están cifrados de extremo a extremo. Nadie fuera de este chat, ni siquiera WhatsApp, puede leerlos ni escucharlos.
+                            </div>
+                        </div>
+                        
+                        <div class="mock-wa-footer">
+                            <div class="mock-wa-input-wrapper">
+                                <div class="mock-wa-emoji-btn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                                        <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                        <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                                    </svg>
+                                </div>
+                                <div id="preview-wa-input" class="mock-wa-input-field placeholder">Escribe un mensaje</div>
+                            </div>
+                            <button class="mock-wa-send-btn" type="button">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
+
+    <!-- Sección Informativa SEO -->
+    <section class="info-section glass-card">
+        <div class="row">
+            <!-- Cómo funciona -->
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h3 class="info-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wa-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    ¿Cómo Funciona el Generador de Links de WhatsApp?
+                </h3>
+                <p class="info-desc">Crear un enlace de chat de WhatsApp compartido es rápido, seguro y gratis. Así es como procesa tu información nuestra herramienta:</p>
+                <ul class="info-steps">
+                    <li>
+                        <span class="info-step-num">1</span>
+                        <div>
+                            <strong>Ingresa tu número de teléfono:</strong> Le damos formato a tu número con el código de país correspondiente (sin espacios ni caracteres especiales) para construir el enlace estándar.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="info-step-num">2</span>
+                        <div>
+                            <strong>Escribe un mensaje personalizado (opcional):</strong> Codificamos tu mensaje en la URL para que, al hacer clic, aparezca automáticamente en la pantalla de chat de tu contacto o cliente.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="info-step-num">3</span>
+                        <div>
+                            <strong>Genera tu enlace wa.me y código QR:</strong> Creamos tu enlace <code>https://wa.me/</code> y un código QR personalizado de WhatsApp listo para descargar y compartir.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Para qué sirve -->
+            <div class="col-md-6">
+                <h3 class="info-title">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--wa-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    ¿Para Qué Puedes Usar los Enlaces de WhatsApp?
+                </h3>
+                <p class="info-desc">Los enlaces de WhatsApp personalizados son ideales para la comunicación directa y te conectan al instante con clientes y contactos:</p>
+                <div class="use-cases-grid">
+                    <div class="use-case-item">
+                        <h5>💼 Ventas Directas y Negocios</h5>
+                        <p>Añade el enlace a tu sitio web o tienda online para facilitar consultas de preventa y pedidos directos de clientes.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <h5>📱 Enlaces en Biografías de Redes Sociales</h5>
+                        <p>Úsalo en tus biografías de Instagram, TikTok, YouTube o Facebook para captar leads e interactuar con tu audiencia.</p>
+                    </div>
+                    <div class="use-case-item">
+                        <h5>📢 Campañas de Marketing y QR</h5>
+                        <p>Imprime tu código QR en tarjetas de presentación, folletos y empaques para conectar publicidad física con soporte digital.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Pie de Página -->
     <footer class="app-footer">
